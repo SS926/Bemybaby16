@@ -29,40 +29,49 @@ body {
 }
 
 /* ===== MODAL ===== */
+/* ===== MODAL OVERLAY ===== */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
-  z-index: 999;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* ===== MODAL BOX ===== */
 .modal-content {
   background: #1e1e1e;
   width: 90%;
   max-width: 420px;
   max-height: 85vh;
-  margin: 10vh auto;
   padding: 20px;
   border-radius: 12px;
   overflow-y: auto;
   position: relative;
 }
 
+/* ===== CLOSE BUTTON (BULLETPROOF) ===== */
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+/* MEDIA */
 .modal img,
 .modal video {
   width: 100%;
   height: auto;
+  max-height: 45vh;      /* 🔑 controls size */
   object-fit: contain;
-  margin-bottom: 15px;
-}
-
-/* CLOSE BUTTON */
-.close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 28px;
-  cursor: pointer;
-  z-index: 1000;
+  margin-bottom: 12px;
 }
