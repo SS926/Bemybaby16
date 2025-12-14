@@ -1,84 +1,44 @@
-body {
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: white;
-  text-align: center;
-}
-
-#login {
-  margin-top: 120px;
-}
-
-input {
-  padding: 10px;
-  font-size: 16px;
-}
-
-button {
-  padding: 10px 25px;
-  font-size: 16px;
-  background: #c62828;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
-
-.calendar {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 15px;
-  max-width: 700px;
-  margin: 30px auto;
-}
-
-.day {
-  background: #c62828;
-  padding: 30px 0;
-  font-size: 22px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.locked {
-  background: #444;
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* MODAL */
+/* MODAL BACKGROUND */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
+  z-index: 999;
 }
 
+/* MODAL BOX */
 .modal-content {
   background: #1e1e1e;
-  padding: 30px;
-  margin: 20% auto;
-  width: 80%;
-  max-width: 400px;
-  border-radius: 12px;
-}
-
-.close {
-  float: right;
-  cursor: pointer;
-  font-size: 24px;
-}
-
-.modal-content {
-  max-height: 85vh;
+  margin: 10vh auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 420px;
+  max-height: 80vh;
   overflow-y: auto;
+  border-radius: 12px;
+  position: relative;
 }
 
+/* IMAGE / VIDEO */
 .modal img,
-{
+.modal video {
   width: 100%;
   height: auto;
-  max-height: 60vh;
-  object-fit: contain;
+  max-height: none;          /* KEY FIX */
+  object-fit: contain;       /* NO CROPPING */
   display: block;
   margin-bottom: 15px;
+}
+
+/* CLOSE BUTTON */
+.close {
+  position: sticky;          /* KEY FIX */
+  top: 0;
+  float: right;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+  z-index: 1000;
+  background: #1e1e1e;
 }
