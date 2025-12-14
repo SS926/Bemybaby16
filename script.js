@@ -160,6 +160,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function closeModal() {
   const modal = document.getElementById("modal");
+  if (!modal) return;
   modal.style.display = "none";
-  document.getElementById("modalText").innerHTML = "";
 }
+
+window.onload = () => {
+  const closeBtn = document.getElementById("closeBtn");
+  if (closeBtn) {
+    closeBtn.onclick = closeModal;
+  }
+};
