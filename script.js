@@ -112,45 +112,43 @@ function generateCalendar() {
 function openModal(day) {
   const modal = document.getElementById("modal");
   const modalText = document.getElementById("modalText");
-
-  modal.style.display = "flex";
-  modal.scrollTop = 0;
+  modal.style.display = "block";
+  modalText.innerHTML = "";
 
   const item = content[day - 1];
 
-  /* 🎂 DAY 16 – BIRTHDAY */
+  // 🎂 DAY 16
   if (item.birthday) {
     modalText.innerHTML = `
-      <div style="text-align:center;">
-        <div id="candle" style="font-size:80px; cursor:pointer;">🕯️</div>
-        <p>${item.text}</p>
-        <canvas id="confettiCanvas"></canvas>
-      </div>
+      <div style="font-size:80px; cursor:pointer;" id="candle">🕯️</div>
+      <p>${item.text}</p>
+      <canvas id="confettiCanvas"></canvas>
     `;
-
     document.getElementById("candle").onclick = blowCandle;
     return;
   }
 
-  /* 🎵 APPLE MUSIC (DAY 9) */
+  // 🎵 Apple Music (Day 9)
   let linkHTML = "";
   if (item.link) {
     linkHTML = `
-      <a href="${item.link}" target="_blank" class="music-btn">
+      <a href="${item.link}" target="_blank"
+         style="display:inline-block;margin-top:12px;
+         padding:10px 16px;background:#fa243c;
+         color:white;border-radius:6px;text-decoration:none;">
         🎵 Open in Apple Music
-      </a>
-    `;
+      </a>`;
   }
-  function closeModal() {
-  const modal = document.getElementById("modal");
-  modal.style.display = "none";
-  document.getElementById("modalText").innerHTML = "";
-}
 
-  /* NORMAL DAYS */
   modalText.innerHTML = `
     <img src="${item.image}">
     <p>${item.text}</p>
     ${linkHTML}
   `;
 }
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+  document.getElementById("modalText").innerHTML = "";
+}
+  /* NORMAL DAYS *
