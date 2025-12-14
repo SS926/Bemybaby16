@@ -1,4 +1,11 @@
-/* ===== CALENDAR LAYOUT ===== */
+body {
+  background: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* ===== CALENDAR ===== */
 .calendar {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -9,12 +16,10 @@
 
 .day {
   background: #c62828;
-  color: white;
   padding: 30px 0;
   font-size: 22px;
   border-radius: 10px;
   cursor: pointer;
-  text-align: center;
 }
 
 .locked {
@@ -22,14 +27,14 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* ===== MODAL ===== */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.7);
   z-index: 999;
-  align-items: center;
-  justify-content: center;
 }
 
 .modal-content {
@@ -37,29 +42,27 @@
   width: 90%;
   max-width: 420px;
   max-height: 85vh;
-  overflow-y: auto;
+  margin: 10vh auto;
   padding: 20px;
   border-radius: 12px;
+  overflow-y: auto;
   position: relative;
 }
 
-/* IMAGE / VIDEO */
 .modal img,
 .modal video {
   width: 100%;
   height: auto;
   object-fit: contain;
-  display: block;
   margin-bottom: 15px;
 }
 
 /* CLOSE BUTTON */
 .close {
-  position: sticky;
-  top: 0;
-  float: right;
-  font-size: 26px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
   cursor: pointer;
   z-index: 1000;
-  background: #1e1e1e;
 }
