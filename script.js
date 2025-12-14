@@ -146,6 +146,17 @@ function openModal(day) {
     ${linkHTML}
   `;
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("modal");
+  const closeBtn = document.getElementById("closeBtn");
+
+  closeBtn.addEventListener("touchstart", closeModal);
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("touchstart", (e) => {
+    if (e.target === modal) closeModal();
+  });
+});
 
 function closeModal() {
   const modal = document.getElementById("modal");
