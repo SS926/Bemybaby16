@@ -34,7 +34,7 @@ const content = [
     image: "day3.jpg"
   },
   {
-    text: "Day 4 😂\nOur 1st 'date' together.",
+    text: "Day 4 😂\nYour 1st 'effort'.",
     image: "day4.jpg"
   },
   {
@@ -54,8 +54,8 @@ const content = [
     image: "day8.jpg"
   },
   {
-    text: "Day 9 🎶\nThis song makes me think about us.",
-    image: "day9.jpg"
+    text: "Day 9 🎶\nThis song makes me think of you.",
+    link: "https://music.apple.com/in/album/my-love-mine-all-mine/1697335341?i=1697335814"
   },
   {
     text: "Day 10 🫠\nSomething I miss more than I admit.",
@@ -70,7 +70,7 @@ const content = [
     image: "day12.jpg"
   },
   {
-    text: "Day 13 ✈️\nOne thing I want to do with you someday.",
+    text: "Day 13 ✈️\nOne thing I want to do with you one day.",
     image: "day13.jpg"
   },
   {
