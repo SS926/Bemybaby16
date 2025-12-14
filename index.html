@@ -22,13 +22,12 @@
 </div>
 
 <!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">×</span>
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="close-btn" onclick="closeModal()">×</button>
     <div id="modalText"></div>
   </div>
 </div>
-
-<script src="script.js"></script>
 </body>
 </html>
