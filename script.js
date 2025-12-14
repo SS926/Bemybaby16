@@ -46,11 +46,11 @@ const content = [
     image: "day6.jpg"
   },
   {
-    text: "Day 7 🍓\nA small moment I love with you.",
+    text: "Day 7 🍓\nA small version of yours I love.",
     image: "day7.jpg"
   },
   {
-    text: "Day 8 💌\nA thank you I should say more often for .",
+    text: "Day 8 💌\nSomething we should plan more often for .",
     image: "day8.jpg"
   },
   {
@@ -82,8 +82,8 @@ const content = [
     image: "day15.jpg"
   },
   {
-    text: "🎂 DAY 16 – HAPPY BIRTHDAYYYY 💘",
-    image: "day16.jpg"
+    text: "🎂 DAY 16 – HAPPY BIRTHDAYYYY 💘 Blow the candles & make a wish✨",
+    birthday: true
   }
 ];
 
@@ -112,11 +112,28 @@ function generateCalendar() {
 function openModal(day) {
   const modal = document.getElementById("modal");
   const modalText = document.getElementById("modalText");
-
   modal.style.display = "block";
 
   const item = content[day - 1];
 
+  /* 🎂 DAY 16 – BIRTHDAY (CANDLE + CONFETTI) */
+  if (item.birthday) {
+    modalText.innerHTML = `
+      <div id="candle" style="font-size:80px; cursor:pointer;">🕯️</div>
+      <p>${item.text}</p>
+      <canvas id="confettiCanvas" style="
+        position:fixed;
+        inset:0;
+        pointer-events:none;
+        display:none;
+      "></canvas>
+    `;
+
+    document.getElementById("candle").onclick = blowCandle;
+    return;
+  }
+
+  /* 🎶 APPLE MUSIC (DAY 9) */
   let linkHTML = "";
   if (item.link) {
     linkHTML = `
@@ -134,6 +151,7 @@ function openModal(day) {
     `;
   }
 
+  /* 🗓️ NORMAL DAYS */
   modalText.innerHTML = `
     <img src="${item.image}" style="width:100%; border-radius:10px; margin-bottom:15px;">
     <p>${item.text}</p>
