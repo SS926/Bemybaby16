@@ -110,10 +110,33 @@ function generateCalendar() {
 
 /* ===== MODAL ===== */
 function openModal(day) {
-  document.getElementById("modal").style.display = "block";
-  document.getElementById("modalText").innerText = content[day - 1];
-}
+  const modal = document.getElementById("modal");
+  const modalText = document.getElementById("modalText");
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
+  modal.style.display = "block";
+
+  const item = content[day - 1];
+
+  let linkHTML = "";
+  if (item.link) {
+    linkHTML = `
+      <a href="${item.link}" target="_blank" style="
+        display:inline-block;
+        margin-top:12px;
+        padding:10px 16px;
+        background:#fa243c;
+        color:white;
+        text-decoration:none;
+        border-radius:6px;
+        font-size:14px;">
+        🎵 Open in Apple Music
+      </a>
+    `;
+  }
+
+  modalText.innerHTML = `
+    <img src="${item.image}" style="width:100%; border-radius:10px; margin-bottom:15px;">
+    <p>${item.text}</p>
+    ${linkHTML}
+  `;
 }
