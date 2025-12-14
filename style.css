@@ -67,3 +67,18 @@ button {
   cursor: pointer;
   font-size: 24px;
 }
+
+.modal-content {
+  max-height: 85vh;
+  overflow-y: auto;
+}
+
+.modal img,
+{
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  display: block;
+  margin-bottom: 15px;
+}
