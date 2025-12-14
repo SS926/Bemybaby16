@@ -141,6 +141,11 @@ function openModal(day) {
       </a>
     `;
   }
+  function closeModal() {
+  const modal = document.getElementById("modal");
+  modal.style.display = "none";
+  document.getElementById("modalText").innerHTML = "";
+}
 
   /* NORMAL DAYS */
   modalText.innerHTML = `
