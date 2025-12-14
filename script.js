@@ -1,5 +1,5 @@
 /* ===== PASSWORD (CHANGE THIS) ===== */
-const PASSWORD = "20thbdayyyyy";
+const PASSWORD = "goluka20thbday";
 
 /* ===== LOGIN ===== */
 function unlock() {
@@ -112,48 +112,39 @@ function generateCalendar() {
 function openModal(day) {
   const modal = document.getElementById("modal");
   const modalText = document.getElementById("modalText");
-  modal.style.display = "block";
+
+  modal.style.display = "flex";
+  modal.scrollTop = 0;
 
   const item = content[day - 1];
 
-  /* 🎂 DAY 16 – BIRTHDAY (CANDLE + CONFETTI) */
+  /* 🎂 DAY 16 – BIRTHDAY */
   if (item.birthday) {
     modalText.innerHTML = `
-      <div id="candle" style="font-size:80px; cursor:pointer;">🕯️</div>
-      <p>${item.text}</p>
-      <canvas id="confettiCanvas" style="
-        position:fixed;
-        inset:0;
-        pointer-events:none;
-        display:none;
-      "></canvas>
+      <div style="text-align:center;">
+        <div id="candle" style="font-size:80px; cursor:pointer;">🕯️</div>
+        <p>${item.text}</p>
+        <canvas id="confettiCanvas"></canvas>
+      </div>
     `;
 
     document.getElementById("candle").onclick = blowCandle;
     return;
   }
 
-  /* 🎶 APPLE MUSIC (DAY 9) */
+  /* 🎵 APPLE MUSIC (DAY 9) */
   let linkHTML = "";
   if (item.link) {
     linkHTML = `
-      <a href="${item.link}" target="_blank" style="
-        display:inline-block;
-        margin-top:12px;
-        padding:10px 16px;
-        background:#fa243c;
-        color:white;
-        text-decoration:none;
-        border-radius:6px;
-        font-size:14px;">
+      <a href="${item.link}" target="_blank" class="music-btn">
         🎵 Open in Apple Music
       </a>
     `;
   }
 
-  /* 🗓️ NORMAL DAYS */
+  /* NORMAL DAYS */
   modalText.innerHTML = `
-    <img src="${item.image}" style="width:100%; border-radius:10px; margin-bottom:15px;">
+    <img src="${item.image}">
     <p>${item.text}</p>
     ${linkHTML}
   `;
