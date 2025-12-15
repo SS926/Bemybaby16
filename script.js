@@ -1,3 +1,4 @@
+alert("SCRIPT LOADED");
 const PASSWORD = "golakabday20"; // change if you want
 
 const content = [
