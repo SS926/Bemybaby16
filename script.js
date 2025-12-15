@@ -3,34 +3,47 @@ const PASSWORD = "golukabday20"; // change this
 const content = [
   { image: "day1.jpg", text: "Birthday countdownnnnn🐭" },
   { image: "day2.jpg", text: "Something that still makes me smile🫶🏻" },
-  { image: "day3.jpg", text: "Only thing I love more than you🧋" },
+  { 
+  scramble: true,
+  scrambled: "OFEFCE",
+  answer: "coffee",
+  successText: "Only thing I love more than you🧋"
+    image: "day3.jpg" },
   { image: "day4.jpg", text: "Your 1st 'effort'" },
   { image: "day5.jpg", text: "Something yk you're good at🌸" },
-  { image: "day6.jpg", text: "Then vs Now⏳" },
+  { 
+  qaScramble: true,
+  question: "Question\n\nWhen was our farewell?",
+  scrambled: "20308022",
+  answer: "08/02/2023",
+  successText: "Then vs Now⏳"
+    image: "day6.jpg" },
   { image: "day7.jpg", text: "I love you🤓" },
   { image: "day8.jpg", text: "We should do this more often🦫" },
 
   {
     image: "day9.jpg",
     text: "🎶 This song reminds me of us",
-    link: "https://music.apple.com/in/album/YOUR-LINK-HERE"
+    link: "https://music.apple.com/in/album/my-love-mine-all-mine/1697335341?i=1697335814"
   },
 
-  { image: "day10.jpg", text: "" },
+  { image: "day10.jpg", text: "I MISS THIS🫠" },
   { image: "day11.jpg", text: "🦾Something you NEED to do" },
   { image: "day12.jpg", text: "Our 1st trip✨" },
   { 
   puzzle: true,
   question: "🧩 Puzzle\n\nI’m not a place, but I feel like home.\nI’m not a word, but you know me well.\nWhat am I?",
   answer: "you",
-  successText: "Hehehehe 🧁"
+  successText: "Hehehehe 🧁",
+  image: "day13.jpg",
   },
   { image: "day14.jpg", text: "Almost there🍓" },
   { image: "day15.jpg", text: "Budday budday🦦" },
 
   {
     birthday: true,
-    text: "🎂 HAPPY BIRTHDAYYYY 💘\nBlow candles & make a wish✨!"
+    text: "🎂 HAPPY BIRTHDAYYYY 💘\nBlow candles & make a wish(ME🦦)✨!",
+    image: "day16.jpg", text: "You're 20??? Issokay no one has to know babygurl🤫"
   }
 ];
 
@@ -90,6 +103,47 @@ function openModal(day) {
     window.successText = item.successText;
     return;
   }
+  /* ❓ QUESTION + DATE SCRAMBLE MODAL */
+if (item.qaScramble) {
+  modalText.innerHTML = `
+    <p style="white-space:pre-line; font-size:16px;">
+      ${item.question}
+    </p>
+
+    <p style="margin-top:10px; font-size:14px;">
+      🔀 <strong>Scrambled hint</strong>
+    </p>
+
+    <h2 style="letter-spacing:2px;">
+      ${item.scrambled}
+    </h2>
+
+    <input
+      id="qaInput"
+      placeholder="DD/MM/YYYY"
+      style="
+        padding:10px;
+        border-radius:6px;
+        border:none;
+        width:80%;
+        text-align:center;
+        font-size:16px;
+      "
+    >
+
+    <br><br>
+
+    <button onclick="checkQAScramble()">
+      Submit
+    </button>
+
+    <p id="qaResult" style="margin-top:12px;"></p>
+  `;
+
+  window.qaAnswer = item.answer.toLowerCase();
+  window.qaSuccess = item.successText;
+  return;
+}
 
   /* 🎵 APPLE MUSIC (DAY 9) */
   let linkHTML = "";
@@ -155,4 +209,24 @@ function checkPuzzle() {
   } else {
     result.innerText = "❌ Try again";
   }
+function checkQAScramble() {
+  const userAnswer = document.getElementById("qaInput").value.trim().toLowerCase();
+  const result = document.getElementById("qaResult");
+
+  if (userAnswer === qaAnswer) {
+    result.innerText = qaSuccess;
+  } else {
+    result.innerText = "❌ Try again";
+  }
+
+function checkQAScramble() {
+  const input = document.getElementById("qaInput").value.trim().toLowerCase();
+  const result = document.getElementById("qaResult");
+
+  if (input === qaAnswer) {
+    result.innerText = qaSuccess;
+  } else {
+    result.innerText = "❌ Try again";
+  }
+}
 }
