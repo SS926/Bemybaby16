@@ -2,26 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Birthday Calendar</title>
+  <title>16 Days</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body> 
-trigger pages rebuild
+<body>
 
 <!-- LOGIN -->
 <div id="login">
-  <h2>🎂 Birthday Calendar</h2>
+  <h2>🔒 Private Calendar</h2>
   <input type="password" id="password" placeholder="Enter password">
   <br><br>
   <button onclick="unlock()">Unlock</button>
 </div>
 
 <!-- CALENDAR -->
-<div id="calendar" class="calendar" style="display:none;"></div>
+<div id="calendar" class="calendar"></div>
 
 <!-- MODAL -->
-<div class="modal" id="modal" onclick="closeModal()">
-  <div class="modal-content" onclick="event.stopPropagation()">
+<div id="modal" class="modal">
+  <div class="modal-content">
     <button class="close-btn" onclick="closeModal()">×</button>
     <div id="modalText"></div>
   </div>
