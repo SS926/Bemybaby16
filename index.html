@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthdsy Calendar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+  <h2>🎂 Birthday Calendar</h2>
+  <input type="password" id="password" placeholder="Enter password">
+  <br><br>
+  <button onclick="unlock()">Unlock</button>
+</div>
+
+<!-- CALENDAR -->
+<div id="calendar" class="calendar" style="display:none;"></div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <button class="close-btn" id="closeBtn">×</button>
+    <div id="modalText"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
