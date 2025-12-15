@@ -7,8 +7,8 @@ const content = [
   scramble: true,
   scrambled: "OFEFCE",
   answer: "coffee",
-  successText: "Only thing I love more than you🧋"
-    image: "day3.jpg" },
+  successText: "Only thing I love more than you🧋",
+  image: "day3.jpg" },
   { image: "day4.jpg", text: "Your 1st 'effort'" },
   { image: "day5.jpg", text: "Something yk you're good at🌸" },
   { 
@@ -16,8 +16,8 @@ const content = [
   question: "Question\n\nWhen was our farewell?",
   scrambled: "20308022",
   answer: "08/02/2023",
-  successText: "Then vs Now⏳"
-    image: "day6.jpg" },
+  successText: "Then vs Now⏳",
+  image: "day6.jpg" },
   { image: "day7.jpg", text: "I love you🤓" },
   { image: "day8.jpg", text: "We should do this more often🦫" },
 
@@ -35,7 +35,7 @@ const content = [
   question: "🧩 Puzzle\n\nI’m not a place, but I feel like home.\nI’m not a word, but you know me well.\nWhat am I?",
   answer: "you",
   successText: "Hehehehe 🧁",
-  image: "day13.jpg",
+  image: "day13.jpg"
   },
   { image: "day14.jpg", text: "Almost there🍓" },
   { image: "day15.jpg", text: "Budday budday🦦" },
