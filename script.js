@@ -225,19 +225,3 @@ function checkQAScramble() {
     result.innerText = "❌ Try again";
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  const closeBtn = document.getElementById("closeBtn");
-  const modal = document.getElementById("modal");
-
-  if (closeBtn) {
-    closeBtn.addEventListener("click", closeModal);
-    closeBtn.addEventListener("touchstart", closeModal);
-  }
-
-  if (modal) {
-    modal.addEventListener("click", e => {
-      if (e.target.id === "modal") closeModal();
-    });
-  }
-});
