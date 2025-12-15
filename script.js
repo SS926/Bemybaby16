@@ -160,10 +160,6 @@ if (item.qaScramble) {
 }
 
 /* CLOSE */
-document.getElementById("closeBtn").onclick = closeModal;
-document.getElementById("modal").onclick = e => {
-  if (e.target.id === "modal") closeModal();
-};
 
 function closeModal() {
   document.getElementById("modal").style.display = "none";
@@ -229,4 +225,19 @@ function checkQAScramble() {
     result.innerText = "❌ Try again";
   }
 }
-}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const closeBtn = document.getElementById("closeBtn");
+  const modal = document.getElementById("modal");
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+    closeBtn.addEventListener("touchstart", closeModal);
+  }
+
+  if (modal) {
+    modal.addEventListener("click", e => {
+      if (e.target.id === "modal") closeModal();
+    });
+  }
+});
