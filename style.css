@@ -26,6 +26,7 @@ body {
   gap: 15px;
   max-width: 500px;
   margin: 40px auto;
+  margin-top: 60px;
 }
 
 /* DAY BOX */
@@ -35,7 +36,8 @@ body {
   border-radius: 12px;
   font-size: 22px;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px rgba(255, 111, 145, 0.25);
 }
 
 .day:hover {
@@ -64,6 +66,7 @@ body {
   overflow-y: auto;
   position: relative;
   animation: fadeIn 0.3s ease;
+  box-shadow: 0 0 30px rgba(255, 111, 145, 0.25);
 }
 
 /* CLOSE BUTTON */
@@ -128,5 +131,35 @@ button {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+/* FLOATING HEARTS */
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px;
+  color: rgba(255, 111, 145, 0.35);
+  font-size: 18px;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-110vh) scale(1.6);
+    opacity: 0;
   }
 }
