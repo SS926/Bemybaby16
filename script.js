@@ -163,6 +163,18 @@ function closeModal() {
   document.getElementById("modalText").innerHTML = "";
 }
 
+function checkWithImage(correct, successText, imagePath) {
+  const input = document.getElementById("answer").value.trim().toLowerCase();
+  const result = document.getElementById("result");
+  const img = document.getElementById("hiddenImage");
+
+  if (input === correct.toLowerCase()) {
+    result.innerText = successText;
+    img.style.display = "block";
+  } else {
+    result.innerText = "❌ Try again";
+  }
+}
 /* ========= CONFETTI ========= */
 function blowCandle() {
   const c = document.getElementById("confettiCanvas");
