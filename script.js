@@ -212,4 +212,13 @@ function blowCandle() {
   }, 20);
 
   setTimeout(() => clearInterval(t), 3000);
+  function spawnHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💖";
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 2000);
+}
 }
