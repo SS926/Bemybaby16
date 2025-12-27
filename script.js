@@ -1,11 +1,17 @@
 const PASSWORD = "1234"; // change if needed
 
 const content = [
-  { image: "day1.jpg", text: "Day 1 ❤️" },
-  { image: "day2.jpg", text: "Day 2 ✨" },
-  { image: "day3.jpg", text: "Day 3 💕" },
-  { image: "day4.jpg", text: "Day 4 🌸" },
-  { image: "day5.jpg", text: "Day 5 🌼" },
+  { image: "day1.jpg", text: "Bday countdown🐭" },
+  { image: "day2.jpg", text: "Always makes me smile✨" },
+  { 
+    type: "scramble",
+    scrambled: "FEOFEC",
+    answer: "coffee",
+    success: "Only thing i love more than you🧋",
+    image: "day3.jpg"
+  },
+  { image: "day4.jpg", text: "Your 1st 'effort'😂" },
+  { image: "day5.jpg", text: "Yk you're good at it🎁" },
 
   {
     type: "qaScramble",
@@ -16,8 +22,8 @@ const content = [
     image: "day6.jpg"
   },
 
-  { image: "day7.jpg", text: "I love you 😌" },
-  { image: "day8.jpg", text: "We should do this more often 🤍" },
+  { image: "day7.jpg", text: "I love you 🫶🏻" },
+  { image: "day8.jpg", text: "We should do this more often 🤓" },
 
   {
     image: "day9.jpg",
@@ -38,7 +44,7 @@ const content = [
   },
 
   { image: "day14.jpg", text: "Almost there 🍓" },
-  { image: "day15.jpg", text: "Buddy buddy 🧸" },
+  { image: "day15.jpg", text: "Budday budday 🧸" },
 
   {
     birthday: true,
@@ -66,7 +72,14 @@ function buildCalendar() {
     const d = document.createElement("div");
     d.className = "day";
     d.innerText = i;
-    d.onclick = () => openModal(i);
+
+    if (isLocked(i)) {
+      d.classList.add("locked");
+      d.innerText = "🔒";
+    } else {
+      d.onclick = () => openModal(i);
+    }
+
     cal.appendChild(d);
   }
 }
@@ -80,16 +93,18 @@ function openModal(day) {
   const item = content[day - 1];
   modalText.innerHTML = "";
 
-  if (item.birthday) {
-    modalText.innerHTML = `
-      <div id="candle" style="font-size:80px;cursor:pointer">🕯️</div>
-      <p>${item.text}</p>
-      <canvas id="confettiCanvas"></canvas>
-      <img src="${item.image}">
-    `;
-    document.getElementById("candle").onclick = blowCandle;
-    return;
-  }
+  if (item.type === "birthday") {
+  modalText.innerHTML = `
+    <img src="${item.image}" style="margin-bottom:15px;">
+    <div id="candle" style="font-size:80px; cursor:pointer;">🕯️</div>
+    <p style="white-space:pre-line;">${item.text}</p>
+    <canvas id="confettiCanvas"
+      style="position:fixed; inset:0; pointer-events:none;">
+    </canvas>
+  `;
+  document.getElementById("candle").onclick = blowCandle;
+  return;
+}
 
   if (item.type === "riddle") {
     modalText.innerHTML = `
@@ -101,16 +116,34 @@ function openModal(day) {
     return;
   }
 
-  if (item.type === "qaScramble") {
-    modalText.innerHTML = `
-      <p>${item.question}</p>
-      <h3>${item.scrambled}</h3>
-      <input id="answerInput" placeholder="DD/MM/YYYY">
-      <button onclick="checkAnswer('${item.answer}','${item.successText}','${item.image}')">Submit</button>
-      <p id="result"></p>
-    `;
-    return;
-  }
+  if (item.type === "scramble") {
+  modalText.innerHTML = `
+    <p>Blah:</p>
+    <h2 style="letter-spacing:4px;">${item.scrambled}</h2>
+    <input
+      id="answer"
+      placeholder="Your answer"
+      style="
+        padding:10px;
+        border-radius:6px;
+        border:none;
+        width:80%;
+        text-align:center;
+      "
+    >
+    <br><br>
+    <button onclick="checkWithImage('${item.answer}','${item.success}','${item.image}')">
+      Submit
+    </button>
+    <p id="result"></p>
+    <img
+      id="hiddenImage"
+      src="${item.image}"
+      style="display:none;margin-top:15px;border-radius:10px;max-width:100%;"
+    >
+  `;
+  return;
+}
 
   let linkHTML = item.link
     ? `<a href="${item.link}" target="_blank">🎵 Open Apple Music</a>`
@@ -132,6 +165,18 @@ function checkAnswer(correct, success, image) {
     result.innerHTML = `${success}<br><img src="${image}" style="max-width:100%;margin-top:10px">`;
   } else {
     result.innerText = "❌ BYE ❌";
+  }
+}
+function checkWithImage(correct, successText, imagePath) {
+  const input = document.getElementById("answer").value.trim().toLowerCase();
+  const result = document.getElementById("result");
+  const img = document.getElementById("hiddenImage");
+
+  if (input === correct.toLowerCase()) {
+    result.innerText = successText;
+    img.style.display = "block";
+  } else {
+    result.innerText = "gdha";
   }
 }
 
