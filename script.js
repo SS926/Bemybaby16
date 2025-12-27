@@ -120,8 +120,9 @@ function openModal(day) {
       <h2>${item.scrambled}</h2>
       <input id="answer">
       <br><br>
-      <button onclick="check('${item.answer}','${item.success}')">Submit</button>
+      <button onclick="check('${item.answer}','${item.success}','${item.image}')">Submit</button>
       <p id="result"></p>
+      <img id="hiddenImage" src="${item.image}" style="display:none;margin-top:15px;">
     `;
     return;
   }
@@ -131,8 +132,9 @@ function openModal(day) {
       <p style="white-space:pre-line;">${item.question}</p>
       <input id="answer">
       <br><br>
-      <button onclick="check('${item.answer}','${item.success}')">Submit</button>
+      <button onclick="check('${item.answer}','${item.success}','${item.image}')">Submit</button>
       <p id="result"></p>
+      <img id="hiddenImage" src="${item.image}" style="display:none;margin-top:15px;">
     `;
     return;
   }
