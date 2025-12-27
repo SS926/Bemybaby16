@@ -1,17 +1,5 @@
-:root {
-  --bg: #0e0b14;
-  --card: #b23a48;
-  --modal: #1b1325;
-  --text: #fff1f3;
-  --accent: #ff6f91;
-}
- 
-body {
-  background: var(--bg;
-  color: var(--text);
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
+body{
+  background: red !important;
 
 /* LOGIN */
 #login {
