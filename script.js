@@ -1,5 +1,5 @@
 /* ========= BASIC LOAD TEST ========= */
-alert("JS LOADED");
+alert("JS is running");
 
 /* ========= PASSWORD ========= */
 const PASSWORD = "1234";
