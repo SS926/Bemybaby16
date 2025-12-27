@@ -15,14 +15,16 @@ const content = [
     success: "Only thing I love more than you🧋",
     image: "day3.jpg" },
   { image: "day4.jpg", text: "Your 1st 'effort'" },
-  { image: "day5.jpg", text: "Something yk you're good at🌸" },
+  { image: "day5.jpg", text: "Something yk you're good at🌸"
+  },
   { 
     type: "qa",
     question: "Question\n\nWhen was our farewell?",
     scrambled: "20308022",
     answer: "08/02/2023",
     success: "Then vs Now⏳",
-    image: "day6.jpg" },
+    image: "day6.jpg" 
+  },
   { image: "day7.jpg", text: "I love you🤓" },
   { image: "day8.jpg", text: "We should do this more often🦫" },
 
