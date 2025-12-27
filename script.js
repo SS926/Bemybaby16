@@ -1,14 +1,19 @@
-alert("JS OK");
-
 function unlock() {
-  const input = document.getElementById("password").value.trim();
+  alert("Unlock clicked");
 
-  if (input !== PASSWORD) {
-    alert("Wrong password ❌");
+  const input = document.getElementById("password").value;
+
+  if (input !== "1234") {
+    alert("Wrong password");
     return;
   }
 
   document.getElementById("login").style.display = "none";
   document.getElementById("calendar").style.display = "grid";
-  buildCalendar();
+
+  if (typeof buildCalendar === "function") {
+    buildCalendar();
+  } else {
+    alert("buildCalendar missing");
+  }
 }
