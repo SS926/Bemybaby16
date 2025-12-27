@@ -196,6 +196,7 @@ function blowCandle() {
     ctx.clearRect(0,0,c.width,c.height);
   }, 3000);
 }
+/* CHECK PUZZLE (DAY 13) */
 function checkPuzzle() {
   const userAnswer = document.getElementById("puzzleInput").value.trim().toLowerCase();
   const result = document.getElementById("puzzleResult");
@@ -205,16 +206,9 @@ function checkPuzzle() {
   } else {
     result.innerText = "❌ Try again";
   }
-function checkQAScramble() {
-  const userAnswer = document.getElementById("qaInput").value.trim().toLowerCase();
-  const result = document.getElementById("qaResult");
+}
 
-  if (userAnswer === qaAnswer) {
-    result.innerText = qaSuccess;
-  } else {
-    result.innerText = "❌ Try again";
-  }
-
+/* CHECK QA SCRAMBLE (DAY 6) */
 function checkQAScramble() {
   const input = document.getElementById("qaInput").value.trim().toLowerCase();
   const result = document.getElementById("qaResult");
