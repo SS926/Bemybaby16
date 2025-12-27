@@ -95,6 +95,7 @@ function openModal(day) {
     box.innerHTML = `
       <div id="candle" style="font-size:80px;cursor:pointer;">🕯️</div>
       <p>${item.text}</p>
+      <img src="${item.image}">
       <canvas id="confettiCanvas"
         style="position:fixed;inset:0;pointer-events:none;"></canvas>
     `;
