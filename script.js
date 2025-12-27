@@ -191,4 +191,17 @@ function blowCandle() {
   }, 30);
 
   setTimeout(() => clearInterval(t), 3000);
+  const heartsContainer = document.querySelector(".hearts");
+
+if (heartsContainer) {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+    heartsContainer.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 8000);
+  }, 500);
 }
