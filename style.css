@@ -5,9 +5,10 @@
   --text: #fff1f3;
   --accent: #ff6f91;
 }
- 
+
 body {
-  background: var(--bg;
+  margin: 0;
+  background: var(--bg);
   color: var(--text);
   font-family: Arial, sans-serif;
   text-align: center;
@@ -15,22 +16,7 @@ body {
 
 /* LOGIN */
 #login {
-  margin-top: 100px;
-}
-
-input {
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-}
-
-button {
-  background: var(--accent);
-  color: white;
-  padding: 10px 18px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
+  margin-top: 120px;
 }
 
 /* CALENDAR */
@@ -42,71 +28,105 @@ button {
   margin: 40px auto;
 }
 
+/* DAY BOX */
 .day {
-  background: var(x-card);
+  background: var(--card);
   padding: 25px 0;
+  border-radius: 12px;
   font-size: 22px;
-  border-radius: 10px;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.locked {
-  background: #444;
-  opacity: 0.5;
-  cursor: not-allowed;
+.day:hover {
+  transform: scale(1.05);
 }
 
-/* MODAL */
+/* MODAL OVERLAY */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.75);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 1000;
 }
 
+/* MODAL BOX */
 .modal-content {
   background: var(--modal);
   color: var(--text);
   width: 90%;
   max-width: 420px;
-  max-height: 85vh;
+  max-height: 80vh;
+  margin: 10vh auto;
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow-y: auto;
   position: relative;
+  animation: fadeIn 0.3s ease;
 }
 
-/* CLOSE */
+/* CLOSE BUTTON */
 .close-btn {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  font-size: 30px;
-  background: black;
-  color: white;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  background: none;
   border: none;
-  z-index: 10000;
+  color: white;
+  cursor: pointer;
 }
 
-/* MEDIA */
+/* IMAGES */
 .modal img {
   width: 100%;
   max-height: 45vh;
   object-fit: contain;
-  margin-bottom: 12px;
+  margin-top: 15px;
+  border-radius: 10px;
 }
 
-/* MUSIC BUTTON */
+/* INPUTS */
+input {
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  width: 80%;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* BUTTONS */
+button {
+  background: var(--accent);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* MUSIC LINK */
 .music-btn {
   display: inline-block;
   margin-top: 12px;
   padding: 10px 16px;
-  background: #fa243c;
+  background: var(--accent);
   color: white;
   text-decoration: none;
   border-radius: 6px;
+}
+
+/* FADE ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
